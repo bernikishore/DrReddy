@@ -1,0 +1,56 @@
+// /**
+//  * Copyright © Magento, Inc. All rights reserved.
+//  * See COPYING.txt for license details.
+//  */
+
+//
+//  Blank theme overrides
+//  _____________________________________________
+
+//  Theme file should contain declarations (overrides) ONLY OF EXISTING variables
+//  Otherwise this theme won't be available for parent nesting
+//  All new variables should be placed in local theme lib or local theme files
+
+// width
+
+@layout__max-width: 1740px;
+@inner_container__width: 1460px;
+
+@theme__color__primary: #5225b5;
+@theme__color__primary-alt: fadeOut(@theme__color__primary, 20%);
+@color-lines: #d9e0f1;
+@color-bg: #f6fbff;
+@color-aliceblue: #e6f4ff;
+@color-gray43: #6d6d6d;
+@color-orange: #fd7068;
+
+
+// form variables:
+@form-element-input__border-color: lighten(@theme__color__primary, 50%);
+@form-element-input__background: #faf9fa;
+@form-element-input__border-radius: 3px;
+@form-element-input__height: 40px;
+@border_color: @color-lines;
+
+@border-color__base: @color-lines;
+
+
+// Button variables
+
+@button__padding: 15px 30px;
+@button__border-radius: 30px;
+
+
+
+// Icon font
+
+@icon__font-path: '@{baseDir}fonts/icons/DrReddy-Icon';
+@icon__font-name: 'DrReddy-Icon';
+
+@icon-phone1: "\e905";
+@icon-envelope: "\e900";
+@icon-check: "\e901";
+@icon-eye: "\e902";
+@icon-eye-off: "\e903";
+@icon-phone: "\e904";
+@icon-x: "\e906";

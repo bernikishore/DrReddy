@@ -1,0 +1,290 @@
+// /**
+//  * Copyright © Magento, Inc. All rights reserved.
+//  * See COPYING.txt for license details.
+//  */
+
+//
+//  Common
+//  _____________________________________________
+
+@layout__max-width-md: 1175px;
+
+.container-md() {
+    box-sizing: border-box;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: @layout__max-width-md;
+    padding-left: @layout-indent__width;
+    padding-right: @layout-indent__width;
+    width: 100%;
+}
+
+.btn-link() {
+    .lib-button-primary();
+    background: transparent;
+    color: @theme__color__primary;
+    border-radius: 30px;
+    text-decoration: none;
+    padding: 10px 24px;
+    text-align: center;
+
+    &:hover {
+        background: @theme__color__primary;
+        color: @color-white;
+    }
+}
+
+& when (@media-common = true) {
+    body {
+        .lib-css(background, @color-bg);
+    }
+
+    * {
+        box-sizing: border-box;
+    }
+
+    .customer-account-create {
+
+        .page-header {
+            border: none;
+            margin-bottom: 0;
+
+            .nav-toggle {
+                display: none;
+            }
+        }
+
+        .page-header,
+        .page-main {
+            .container-md();
+        }
+
+        .header {
+            &.content {
+                padding: 20px 0;
+                border-bottom: 1px dotted @color-gray43;
+                margin-bottom: 60px;
+                .lib-vendor-prefix-display(flex);
+                align-items: center;
+
+                .signin-block {
+                    margin-left: auto;
+                    .action {
+                        .btn-link();
+                        margin-left: 10px;
+                    }
+                }
+
+                .logo {
+                    margin: 0;
+                }
+            }
+        }
+
+        .form.create.account {
+            padding: 40px;
+            background: @color-white;
+            min-width: auto;
+            width: auto;
+
+            .legend {
+                margin-left: 0;
+                padding-right: 20px;
+                padding-left: 20px;
+                font-weight: 600;
+            }
+
+            .field {
+                &.newsletter {
+                    display: none;
+                }
+            }
+
+            .fieldset {
+                margin-bottom: 0;
+                margin-left: -20px;
+                margin-right: -20px;
+                &.create {
+                    &.account {
+                        .legend {
+                            display: none;
+                        }
+                    }
+                }
+
+                .field {
+                    width: 50%;
+                    float: left;
+                    margin-bottom: 20px;
+                }
+
+                .password-validator {
+                    font-size: 12px;
+                    margin-top: 5px;
+                    ul {
+                        margin: 10px 0 0;
+                        padding: 0;
+                        list-style: none;
+
+                        li {
+                            position: relative;
+                            padding-left: 15px;
+                            &:before {
+                                content: '';
+                                width: 6px;
+                                height: 6px;
+                                border-radius:50%;
+                                border: 1px solid @color-gray43;
+                                position: absolute;
+                                left: 0;
+                                top: 5px;
+                                font-family: @icon__font-name;
+                            }
+
+                            &.mage-error {
+                                color: @form-validation-note__color-error;
+                                &:before {
+                                    content: @icon-x;
+                                    top: 0;
+                                    border: none;
+                                }
+                            }
+
+                            &.valid {
+                                color: @color-dark-green1;
+                                &:before {
+                                    content: @icon-check;
+                                    top: 0;
+                                    border: none;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            .actions-toolbar {
+                margin: 30px 0 0;
+                padding: 40px 20px 0;
+                border-top: 1px dotted @color-gray43;
+                .lib-vendor-prefix-display(flex);
+                align-items: center;
+                justify-content: space-between;
+                flex-direction: row;
+                .primary {
+                    .lib-vendor-prefix-order(1);
+                    margin-left: auto;
+
+                    .action {
+                        margin-right: 0;
+                    }
+                }
+            }
+        }
+    }
+
+    .help-wrap {
+        .lib-css(background, @color-aliceblue);
+        padding: 20px;
+        h2 {
+            margin-top: 0;
+            font-weight: 600;
+        }
+
+        .link-sec {
+            ul {
+                list-style: none;
+                padding-left: 0;
+            }
+        }
+
+        .contact-info-link {
+            .lib-vendor-prefix-display(flex);
+            align-items: center;
+
+            & + .contact-info-link {
+                margin-top: 10px;
+            }
+
+            [class^="icon-"] {
+                width: 30px;
+                height: 30px;
+                background: @color-orange;
+                display: flex;
+                border-radius: 50%;
+                color: @color-white;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .contact-link {
+                margin-left: 10px;
+                span {
+                    display: block;
+                }
+
+                a {
+                    font-weight: 600;
+                }
+            }
+        }
+    }
+}
+
+
+
+
+//
+//  Mobile
+//  _____________________________________________
+
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
+    .customer-account-create {
+        .form.create.account {
+            .fieldset {
+                .field {
+                    width: 100%;
+                }
+            }
+        }
+    }
+}
+
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
+    .customer-account-create {
+        .header.content {
+            .signin-block {
+                .action {
+                    display: block;
+                    margin: 10px 0 0;
+                }
+            }
+        }
+        .form.create.account {
+            .actions-toolbar {
+                flex-direction: column;
+                .primary {
+                    margin: 10px 0 0;
+                }
+            }
+        }
+    }
+}
+
+
+//
+//  Desktop
+//  _____________________________________________
+
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+
+    .page-layout-2columns-right {
+        .column.main {
+            width: 75%;
+        }
+        .sidebar-main {
+            width: 25%;
+        }
+    }
+}

@@ -1,0 +1,24 @@
+<?xml version="1.0" ?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="2columns-right" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="page.main.title" remove="true"/>
+        <referenceContainer name="header.panel.wrapper" remove="true" />
+        <referenceBlock name="top.search" remove="true"/>
+        <referenceBlock name="minicart" remove="true" />
+        <referenceBlock name="navigation.sections" remove="true"/>
+        <referenceContainer name="footer-container" remove="true" />
+        <referenceContainer name="div.sidebar.additional" remove="true"/>
+        <referenceContainer name="columns">
+            <container name="div.sidebar.main" htmlTag="div" htmlClass="sidebar sidebar-main" after="main">
+                <container name="sidebar.main" as="sidebar_main" label="Sidebar Main"/>
+            </container>
+        </referenceContainer>
+
+        <block class="Magento\Framework\View\Element\Template" name="sidebar.extra.links" template="Magento_Theme::html/sidebar-links.phtml" />
+
+        <move element="sidebar.extra.links" destination="sidebar.main" before="-"/>
+        <block class="Magento\Framework\View\Element\Template" name="login-link" template="Magento_Customer::signin.phtml"/>
+
+        <move element="login-link" destination="header-wrapper" after="logo"/>
+    </body>
+</page>
