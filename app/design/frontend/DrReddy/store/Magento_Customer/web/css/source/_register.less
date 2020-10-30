@@ -129,6 +129,9 @@
                         li {
                             position: relative;
                             padding-left: 15px;
+                            width: 50%;
+                            float: left;
+                            padding-right: 5px;
                             &:before {
                                 content: '';
                                 width: 6px;
@@ -139,6 +142,10 @@
                                 left: 0;
                                 top: 5px;
                                 font-family: @icon__font-name;
+                            }
+
+                            &.length-validation {
+                                width: 100%;
                             }
 
                             &.mage-error {
